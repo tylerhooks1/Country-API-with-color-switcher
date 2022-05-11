@@ -14,8 +14,8 @@ let theme = createTheme({
     lightMode: {
       text: "hsla(200, 15%, 8%, 1)",
       input: "hsl(0, 0%, 52%)",
-      element: "hsl(0, 0%, 100%)",
-      background: "hsl(0, 0%, 98%)",
+      element: "hsla(0, 0%, 100%, 1)",
+      background: "#F2F2F2",
     },
     darkMode: {
       text: "hsla(0, 0%, 100%, 1)",
