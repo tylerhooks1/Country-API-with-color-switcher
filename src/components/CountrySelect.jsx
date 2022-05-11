@@ -1,7 +1,7 @@
 import React from "react";
 import Collapse from "@mui/material/Collapse";
-const Dropdown = () => {
+const CountrySelect = () => {
   return <div></div>;
 };
 
-export default Dropdown;
+export default CountrySelect;
