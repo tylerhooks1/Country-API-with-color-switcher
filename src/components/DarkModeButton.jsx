@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import IconButton from "@mui/material/IconButton";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import theme from "../theme";
 
 const DarkModeButton = () => {
   // const [dark, setDark] = useState({});
