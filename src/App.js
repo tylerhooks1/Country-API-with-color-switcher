@@ -1,12 +1,10 @@
 import React from "react";
 import { ThemeContext, themes } from "./theme-context";
-import ThemeTogglerButton from "./theme-toggler-button";
 import Header from "./components/Header";
-
+import Container from "@mui/material/Container";
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.toggleTheme = () => {
       this.setState((state) => ({
         theme: state.theme === themes.dark ? themes.light : themes.dark,
@@ -16,7 +14,7 @@ class App extends React.Component {
     // State also contains the updater function so it will
     // be passed down into the context provider
     this.state = {
-      theme: themes.light,
+      theme: themes.light, //default
       toggleTheme: this.toggleTheme,
     };
   }
@@ -33,10 +31,14 @@ class App extends React.Component {
 
 function Content() {
   return (
-    <div>
-      <ThemeTogglerButton />
-      <Header />
-    </div>
+    <ThemeContext.Consumer>
+      {({ theme }) => (
+        <div style={{ backgroundColor: theme.background }}>
+          <Header />
+          <Container></Container>
+        </div>
+      )}
+    </ThemeContext.Consumer>
   );
 }
 
