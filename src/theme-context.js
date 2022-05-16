@@ -13,6 +13,7 @@ export const themes = {
     data: "#FFFF",
     text: "#FFFF",
   },
+  typography: {},
 };
 
 export const ThemeContext = React.createContext({
