@@ -1,21 +1,42 @@
 import React from "react";
-import { ThemeProvider, Container } from "@mui/material";
-import theme from "./theme";
-import { useTheme } from "@mui/system";
+import { ThemeContext, themes } from "./theme-context";
+import ThemeTogglerButton from "./theme-toggler-button";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
 
-function App() {
-  const theme = useTheme();
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleTheme = () => {
+      this.setState((state) => ({
+        theme: state.theme === themes.dark ? themes.light : themes.dark,
+      }));
+    };
+
+    // State also contains the updater function so it will
+    // be passed down into the context provider
+    this.state = {
+      theme: themes.light,
+      toggleTheme: this.toggleTheme,
+    };
+  }
+
+  render() {
+    // The entire state is passed to the provider
+    return (
+      <ThemeContext.Provider value={this.state}>
+        <Content />
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+function Content() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Header />
-        <Container>
-          <SearchBar />
-        </Container>
-      </div>
-    </ThemeProvider>
+    <div>
+      <ThemeTogglerButton />
+      <Header />
+    </div>
   );
 }
 
