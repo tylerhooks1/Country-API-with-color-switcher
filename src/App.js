@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeContext, themes } from "./theme-context";
 import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
 import Container from "@mui/material/Container";
 class App extends React.Component {
   constructor(props) {
@@ -33,10 +34,13 @@ function Content() {
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
-        <div style={{ backgroundColor: theme.background }}>
-          <Header />
-          <Container></Container>
-        </div>
+        <React.Fragment>
+          <div style={{ backgroundColor: theme.componentBG }}>
+            <Header />
+            <SearchBar />
+          </div>
+          <Container style={{ backgroundColor: theme.background }}></Container>
+        </React.Fragment>
       )}
     </ThemeContext.Consumer>
   );

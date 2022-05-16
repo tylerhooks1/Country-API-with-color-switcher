@@ -11,8 +11,32 @@ function ThemeTogglerButton() {
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
         <IconButton onClick={toggleTheme} disableRipple>
-          <DarkModeOutlinedIcon />
-          Dark Mode
+          {theme === themes.dark ? (
+            <DarkModeIcon
+              sx={{
+                fontSize: "16px",
+                marginRight: "8px",
+                color: theme.text,
+              }}
+            />
+          ) : (
+            <DarkModeOutlinedIcon
+              sx={{
+                fontSize: "16px",
+                marginRight: "8px",
+                color: theme.text,
+              }}
+            />
+          )}
+          <span
+            style={{
+              fontSize: "14px",
+              color: theme.text,
+              margin: "0",
+            }}
+          >
+            Dark Mode
+          </span>
         </IconButton>
       )}
     </ThemeContext.Consumer>
