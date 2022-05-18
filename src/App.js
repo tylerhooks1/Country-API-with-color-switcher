@@ -37,9 +37,12 @@ function Content() {
         <React.Fragment>
           <div style={{ backgroundColor: theme.componentBG }}>
             <Header />
-            <SearchBar />
           </div>
-          <Container style={{ backgroundColor: theme.background }}></Container>
+          <div style={{ backgroundColor: theme.background }}>
+            <Container>
+              <SearchBar />
+            </Container>
+          </div>
         </React.Fragment>
       )}
     </ThemeContext.Consumer>
