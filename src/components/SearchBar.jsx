@@ -13,7 +13,6 @@ function SearchBar() {
     width: 40%;
     @media (max-width: 400px) {
       width: 70%;
-      margin-right: 20px;
     }
   `;
 
